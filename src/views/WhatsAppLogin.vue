@@ -1733,8 +1733,8 @@ onUnmounted(() => {
   }
 
   .wa-right-side {
-    padding: 32px 24px;
-    min-height: 300px;
+    padding: 24px 16px;
+    min-height: 280px;
   }
 
   .wa-title {
@@ -1871,6 +1871,11 @@ onUnmounted(() => {
 
   .wa-left-side {
     padding: 20px 12px;
+  }
+
+  .wa-right-side {
+    padding: 20px 12px;
+    min-height: 250px;
   }
 
   .wa-instruction-text {

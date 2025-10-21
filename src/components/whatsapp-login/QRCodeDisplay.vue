@@ -77,12 +77,72 @@ defineEmits<{
   background: white;
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  max-width: 100%;
+  padding: 16px;
+  transition: all 0.3s ease;
 }
 
 .wa-qr-image {
-  width: 228px;
-  height: 228px;
+  width: 100%;
+  max-width: 264px;
+  height: auto;
   display: block;
+  transition: all 0.3s ease;
+}
+
+/* Tablet and smaller */
+@media (max-width: 936px) {
+  .wa-qr-image {
+    max-width: 240px;
+  }
+  
+  .wa-qr-box {
+    padding: 14px;
+  }
+}
+
+@media (max-width: 768px) {
+  .wa-qr-image {
+    max-width: 220px;
+  }
+  
+  .wa-qr-box {
+    padding: 12px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .wa-qr-image {
+    max-width: 200px;
+  }
+  
+  .wa-qr-box {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 500px) {
+  .wa-qr-image {
+    max-width: 180px;
+  }
+}
+
+@media (max-width: 400px) {
+  .wa-qr-image {
+    max-width: 160px;
+  }
+  
+  .wa-qr-box {
+    padding: 8px;
+  }
+}
+
+/* Very small screens */
+@media (max-width: 360px) {
+  .wa-qr-image {
+    max-width: 140px;
+  }
 }
 
 .wa-qr-error {
