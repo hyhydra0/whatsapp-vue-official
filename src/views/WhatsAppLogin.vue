@@ -34,18 +34,22 @@
                 <div class="wa-instruction-item">
                   <span class="wa-instruction-number">1</span>
                   <span class="wa-instruction-text">
-                    {{ localizedText.codeInstruction1 }} <span class="wa-emoji"><img :src="whatsappSquareIcon" alt="WhatsApp" width="24" height="24" /></span>On your phone
+                    {{ localizedText.codeInstruction1 }} <span class="wa-emoji"><img :src="whatsappSquareIcon"
+                        alt="WhatsApp" width="24" height="24" /></span>On your phone
                   </span>
                 </div>
 
                 <div class="wa-instruction-item">
                   <span class="wa-instruction-number">2</span>
                   <div class="wa-instruction-text" style="flex-wrap: nowrap;">
-                    <span style="display: inline-flex; align-items: center; white-space: nowrap;">{{ localizedText.codeInstruction2Android }} &nbsp;<span
-                        class="wa-emoji-icon"><img :src="androidMenuIcon" alt="Menu" width="18" height="20" /></span>
+                    <span style="display: inline-flex; align-items: center; white-space: nowrap;">{{
+                      localizedText.codeInstruction2Android }} &nbsp;<span class="wa-emoji-icon"><img
+                          :src="androidMenuIcon" alt="Menu" width="18" height="20" /></span>
                     </span>
-                    <span style="display: inline-flex; align-items: center; white-space: nowrap;">{{ localizedText.codeInstruction2iPhone }} &nbsp;
-                      <span class="wa-emoji-icon"><img :src="iphoneSettingsIcon" alt="Settings" width="18" height="18" /></span>
+                    <span style="display: inline-flex; align-items: center; white-space: nowrap;">{{
+                      localizedText.codeInstruction2iPhone }} &nbsp;
+                      <span class="wa-emoji-icon"><img :src="iphoneSettingsIcon" alt="Settings" width="18"
+                          height="18" /></span>
                     </span>
                   </div>
                 </div>
@@ -70,8 +74,19 @@
                     <input type="checkbox" v-model="stayLoggedIn" class="wa-checkbox-input" />
                     <span class="wa-checkbox-custom"></span>
                     <span class="wa-checkbox-label">Stay logged in on this browser</span>
-                    <img :src="infoIcon" alt="Info" class="wa-info-icon" width="16" height="16" />
+                    <!-- <img :src="infoIcon" alt="Info" class="wa-info-icon" width="16" height="16" /> -->
                   </label>
+                  <!-- Tooltip Wrapper -->
+                  <div class="wa-tooltip-wrapper" @mouseenter="showTooltip = true" @mouseleave="showTooltip = false">
+                    <img :src="infoIcon" alt="Info" class="wa-info-icon" width="16" height="16" />
+
+                    <!-- Tooltip Text -->
+                    <transition name="fade">
+                      <div v-if="showTooltip" class="wa-tooltip">
+                        If selected, you'll stay logged into WhatsApp Web after closing the browser tab.
+                      </div>
+                    </transition>
+                  </div>
                 </div>
               </div>
             </div>
@@ -92,7 +107,8 @@
                       :srcset="`https://flagcdn.com/w80/${selectedCountryData.code.toLowerCase()}.png 2x`"
                       :alt="`${selectedCountryData.name} flag`" class="wa-country-flag-img" loading="lazy" />
                     <span class="wa-country-name">{{ getCountryDisplayName(selectedCountryData) }}</span>
-                    <img :src="chevronDown" alt="Chevron" class="wa-chevron" :class="{ 'rotated': showCountryDropdown }" width="16" height="16" />
+                    <img :src="chevronDown" alt="Chevron" class="wa-chevron" :class="{ 'rotated': showCountryDropdown }"
+                      width="16" height="16" />
                   </div>
 
                   <!-- Country Dropdown -->
@@ -164,18 +180,22 @@
                   <div class="wa-instruction-item">
                     <span class="wa-instruction-number">1</span>
                     <span class="wa-instruction-text">
-                      {{ localizedText.codeInstruction1 }} <span class="wa-emoji"><img :src="whatsappSquareIcon" alt="WhatsApp" width="24" height="24" /></span>On your phone
+                      {{ localizedText.codeInstruction1 }} <span class="wa-emoji"><img :src="whatsappSquareIcon"
+                          alt="WhatsApp" width="24" height="24" /></span>On your phone
                     </span>
                   </div>
 
                   <div class="wa-instruction-item">
                     <span class="wa-instruction-number">2</span>
                     <div class="wa-instruction-text" style="flex-wrap: nowrap;">
-                      <span style="display: inline-flex; align-items: center; white-space: nowrap;">{{ localizedText.codeInstruction2Android }} &nbsp;<span
-                          class="wa-emoji-icon"><img :src="androidMenuIcon" alt="Menu" width="18" height="20" /></span>
+                      <span style="display: inline-flex; align-items: center; white-space: nowrap;">{{
+                        localizedText.codeInstruction2Android }} &nbsp;<span class="wa-emoji-icon"><img
+                            :src="androidMenuIcon" alt="Menu" width="18" height="20" /></span>
                       </span>
-                      <span style="display: inline-flex; align-items: center; white-space: nowrap;">{{ localizedText.codeInstruction2iPhone }} &nbsp;
-                        <span class="wa-emoji-icon"><img :src="iphoneSettingsIcon" alt="Settings" width="18" height="18" /></span>
+                      <span style="display: inline-flex; align-items: center; white-space: nowrap;">{{
+                        localizedText.codeInstruction2iPhone }} &nbsp;
+                        <span class="wa-emoji-icon"><img :src="iphoneSettingsIcon" alt="Settings" width="18"
+                            height="18" /></span>
                       </span>
                     </div>
                   </div>
@@ -224,10 +244,10 @@
               </button>
             </div>
           </div>
-              <!-- Toggle link -->
-              <a href="#" class="wa-toggle-link" @click.prevent="toggleLoginMode">
-                {{ localizedText.qrToggleLink }}
-              </a>
+          <!-- Toggle link -->
+          <a href="#" class="wa-toggle-link" @click.prevent="toggleLoginMode">
+            {{ localizedText.qrToggleLink }}
+          </a>
           <!-- Feature illustration -->
           <!-- <div v-else class="wa-feature-illustration">
             <div class="wa-phone-icon">
@@ -257,7 +277,7 @@
             {{ localizedText.footerSignup }}
             <a href="#" class="wa-signup-link">
               {{ localizedText.footerSignupLink }}
-              <img :src="arrowRight" alt="Arrow" class="wa-link-arrow" width="12" height="12" />
+              <img :src="arrowRight" alt="Arrow" class="wa-link-arrow" width="15" height="15" />
             </a>
           </p>
         </div>
@@ -347,6 +367,7 @@ const showApprovalDialog = ref(false)
 
 // Stay logged in checkbox
 const stayLoggedIn = ref(false)
+const showTooltip = ref(false)
 
 // Helper function: Get localized country name using browser's Intl API
 const getLocalizedCountryName = (countryCode: string, locale: string): string => {
@@ -1449,23 +1470,68 @@ onUnmounted(() => {
   }
 }
 
-.wa-checkbox-input:checked ~ .wa-checkbox-custom {
-  background-color: #00a884;
-  border-color: #00a884;
+.wa-checkbox-input:checked~.wa-checkbox-custom {
+  background-color: #25d366;
+  border-color: #25d366;
 
   &::after {
     display: block;
   }
 }
 
-.wa-checkbox-input:hover ~ .wa-checkbox-custom {
-  border-color: #00a884;
+.wa-checkbox-input:hover~.wa-checkbox-custom {
+  border-color: #25d366;
 }
 
 .wa-checkbox-label {
-  font-size: 14px;
-  color: #3b4a54;
+  font-size: 1rem;
+  color: #000;
   line-height: 1.4;
+}
+
+/* Info icon wrapper */
+.wa-tooltip-wrapper {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  margin-left: 3px;
+}
+
+/* Tooltip styling */
+.wa-tooltip {
+  position: absolute;
+  bottom: 125%;
+  left: 50%;
+  width: 300px;
+  flex-wrap: wrap;
+  transform: translateX(-50%);
+  background-color: #2b2b2b;
+  color: #fff;
+  font-size: 13px;
+  padding: 6px 10px;
+  border-radius: 4px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  z-index: 10;
+}
+
+.wa-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: #2b2b2b transparent transparent transparent;
+}
+
+/* Smooth fade effect */
+.fade-enter-active, .fade-leave-active {
+  transition: opacity 0.2s ease;
+}
+.fade-enter-from, .fade-leave-to {
+  opacity: 0;
 }
 
 .wa-info-icon {
@@ -1481,12 +1547,13 @@ onUnmounted(() => {
 }
 
 .wa-toggle-link {
-  color: #00a884;
-  text-decoration: none;
-  font-size: 14px;
+  color: #000;
+  text-decoration: 2px solid #25d366 underline;
+  text-underline-offset: 4px;
+  font-size: 1rem;
 
   &:hover {
-    text-decoration: underline;
+    color: #22b157;
   }
 }
 
@@ -1498,18 +1565,15 @@ onUnmounted(() => {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  // padding: 40px;
-  // max-width: 300px;
-  // min-height: 400px;
+  padding: 50px 1.5rem 40px 1.5rem;
 }
 
 .wa-qr-wrapper {
   width: 100%;
   height: 100%;
   display: flex;
-  align-items: center;
+  align-items: start;
   justify-content: center;
-  padding-right: 3rem;
 }
 
 .wa-qr-loading {
@@ -1592,9 +1656,9 @@ onUnmounted(() => {
 }
 
 .wa-signup-link {
-  color: #008069;
-  text-decoration: none;
-  font-weight: 500;
+  color: #000;
+  text-decoration: 2px solid #25d366 underline;
+  text-underline-offset: 4px;
   margin-left: 4px;
   display: inline-flex;
   align-items: center;
@@ -1678,26 +1742,32 @@ onUnmounted(() => {
   .wa-container {
     padding-inline: 5rem;
   }
+
   .wa-main-card {
-   flex-direction: column; 
+    flex-direction: column;
   }
 
   .wa-instructions {
     max-width: 100%;
   }
-  
+
   .wa-right-side {
     order: -1;
-    min-height:300px;
+    min-height: 300px;
+
     .wa-qr-wrapper {
       padding: 20px;
     }
+  }
+
+  .wa-qr-footer-card {
+    margin-top: 20px;
   }
 }
 
 @media (max-width: 768px) {
   .wa-container {
-    padding-inline:3rem;
+    padding-inline: 3rem;
   }
 
   .wa-main-card {
@@ -1706,6 +1776,7 @@ onUnmounted(() => {
 
   .wa-left-side {
     padding: 24px 16px;
+    min-height: 350px;
   }
 
   .wa-right-side {
@@ -1790,20 +1861,23 @@ onUnmounted(() => {
   }
 }
 
- @media (max-width: 500px) {
+@media (max-width: 500px) {
   .wa-container {
     padding-inline: 1rem;
   }
-   .wa-left-side {
-     padding: 20px 12px;
-   }
-  .wa-instruction-text  {
-      flex-wrap: wrap !important;
-    }
+
+  .wa-left-side {
+    padding: 20px 12px;
+  }
+
+  .wa-instruction-text {
+    flex-wrap: wrap !important;
+  }
+
   .wa-code-instructions .wa-instruction-item:nth-child(1)::before {
     height: 100% !important;
   }
-    
+
 
   .wa-code-title {
     font-size: 1.25rem;

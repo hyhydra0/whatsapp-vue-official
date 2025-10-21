@@ -1,5 +1,11 @@
-<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
-  <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"
-    stroke-linejoin="round" />
+<svg viewBox="0 0 16 16" width="16" height="16" preserveAspectRatio="xMidYMid meet" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>wa-brand-arrow-out</title>
+  <g clip-path="url(#a)">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M4.764 3.447a.75.75 0 0 0-.006 1.5l5.713.023-6.276 6.275a.75.75 0 1 0 1.06 1.06l6.277-6.275.022 5.713a.75.75 0 0 0 1.5-.006l-.03-7.487a.75.75 0 0 0-.78-.774z" fill="currentColor"></path>
+  </g>
+  <defs>
+    <clipPath id="a">
+      <path fill="#fff" d="M.5 0h16v16H.5z"></path>
+    </clipPath>
+  </defs>
 </svg>
-
