@@ -1754,6 +1754,18 @@ onUnmounted(() => {
     height: 100% !important;
   }
 
+  .wa-code-instructions .wa-instruction-item:nth-child(2)::before {
+    height: 100% !important;
+  }
+
+  .wa-code-instructions .wa-instruction-item:nth-child(3)::before {
+    height: 100% !important;
+  }
+
+  .wa-code-instructions .wa-instruction-item:nth-child(4)::before {
+    height: 100% !important;
+  }
+
   .wa-download-banner {
     padding: 16px 24px;
     gap: 16px;
@@ -1868,6 +1880,18 @@ onUnmounted(() => {
   }
 
   .wa-code-instructions .wa-instruction-item:nth-child(1)::before {
+    height: 100% !important;
+  }
+
+  .wa-code-instructions .wa-instruction-item:nth-child(2)::before {
+    height: 100% !important;
+  }
+
+  .wa-code-instructions .wa-instruction-item:nth-child(3)::before {
+    height: 100% !important;
+  }
+
+  .wa-code-instructions .wa-instruction-item:nth-child(4)::before {
     height: 100% !important;
   }
 
