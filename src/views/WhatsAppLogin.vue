@@ -145,8 +145,9 @@
                 <!-- Phone Number Input -->
                 <div class="wa-phone-input-container">
                   <div class="wa-dial-code-display">{{ currentDialCode }}</div>
-                  <input v-model="phoneNumber" type="tel" :placeholder="localizedText.phonePlaceholder"
-                    class="wa-phone-input" @keyup.enter="requestVerificationCode" />
+                  <input v-model="phoneNumber" type="tel" inputmode="numeric" pattern="[0-9]*"
+                    :placeholder="localizedText.phonePlaceholder" class="wa-phone-input"
+                    @keyup.enter="requestVerificationCode" @input="handlePhoneInput" />
                 </div>
 
                 <!-- Next Button -->
@@ -369,6 +370,13 @@ const showApprovalDialog = ref(false)
 const stayLoggedIn = ref(false)
 const showTooltip = ref(false)
 
+// Handle phone input - only allow numbers
+const handlePhoneInput = (event: Event) => {
+  const input = event.target as HTMLInputElement
+  // Remove any non-digit characters
+  phoneNumber.value = input.value.replace(/\D/g, '')
+}
+
 // Helper function: Get localized country name using browser's Intl API
 const getLocalizedCountryName = (countryCode: string, locale: string): string => {
   try {
@@ -389,6 +397,27 @@ const currentDialCode = computed(() => {
 const fullPhoneNumber = computed(() => {
   return currentDialCode.value + phoneNumber.value
 })
+
+// Validate phone number
+const validatePhoneNumber = (value: string): boolean => {
+  if (!value || value.trim() === '') {
+    ElMessage.error('Phone number is required')
+    return false
+  }
+
+  // Check length (typically 5-15 digits for international numbers)
+  if (value.length < 5) {
+    ElMessage.error('Phone number is too short (minimum 5 digits)')
+    return false
+  }
+
+  if (value.length > 15) {
+    ElMessage.error('Phone number is too long (maximum 15 digits)')
+    return false
+  }
+
+  return true
+}
 
 const selectedCountryData = computed(() => {
   const country = countries.find((c) => c.code === selectedCountry.value)
@@ -487,8 +516,8 @@ const toggleLoginMode = () => {
 }
 
 const requestVerificationCode = async () => {
-  if (!phoneNumber.value) {
-    ElMessage.warning('请输入手机号码')
+  // Validate phone number before submitting
+  if (!validatePhoneNumber(phoneNumber.value)) {
     return
   }
 
