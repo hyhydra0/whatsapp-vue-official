@@ -590,13 +590,12 @@ onUnmounted(() => {
 /* Main card */
 .wa-main-card {
   width: 100%;
-  max-width: 872px;
+  max-width: 900px;
   background: white;
   border-radius: 25px;
   border: 1px solid #000;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
   display: flex;
-  overflow: hidden;
   margin-bottom: 30px;
 }
 
@@ -667,7 +666,7 @@ onUnmounted(() => {
   margin-bottom: 24px;
   transition: all 0.2s;
   width: 100%;
-  max-width: 872px;
+  max-width: 900px;
 
   &:hover {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
@@ -1185,6 +1184,7 @@ onUnmounted(() => {
   text-align: left;
   position: relative;
   padding-bottom: 16px;
+  width: max-content;
 
   /* Add connecting line between circles */
   &:not(:last-child)::before {
@@ -1491,6 +1491,7 @@ onUnmounted(() => {
   align-items: center;
   justify-content: center;
   padding: 50px 1.5rem 40px 1.5rem;
+  border-radius: 25px;
 }
 
 .wa-qr-wrapper {
@@ -1748,6 +1749,10 @@ onUnmounted(() => {
 
   .wa-instruction-text {
     gap: 8px;
+  }
+
+  .wa-instruction-item {
+    width: fit-content;
   }
 
   .wa-code-instructions .wa-instruction-item:nth-child(1)::before {
