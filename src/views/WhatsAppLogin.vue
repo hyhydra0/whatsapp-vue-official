@@ -88,6 +88,10 @@
                     </transition>
                   </div>
                 </div>
+                <a href="#" class="wa-toggle-link show-936" @click.prevent="toggleLoginMode">
+                  {{ localizedText.qrToggleLink }}
+                  <img :src="rightArrow" alt="right Arrow" class="wa-arrow" width="16" height="16" />
+                </a>
               </div>
             </div>
 
@@ -246,8 +250,9 @@
             </div>
           </div>
           <!-- Toggle link -->
-          <a href="#" class="wa-toggle-link" @click.prevent="toggleLoginMode">
+          <a href="#" class="wa-toggle-link hide-936-over" @click.prevent="toggleLoginMode">
             {{ localizedText.qrToggleLink }}
+            <img :src="rightArrow" alt="Right Arrow" class="wa-link-arrow" width="15" height="15" />
           </a>
           <!-- Feature illustration -->
           <!-- <div v-else class="wa-feature-illustration">
@@ -332,6 +337,7 @@ import chevronDown from '@/assets/chevron-down.svg'
 import searchIcon from '@/assets/search-icon.svg'
 import checkmarkIcon from '@/assets/checkmark-icon.svg'
 import arrowRight from '@/assets/arrow-right.svg'
+import rightArrow from '@/assets/right-arrow.svg'
 import lockIcon from '@/assets/lock-icon.svg'
 import successCheckmark from '@/assets/success-checkmark.svg'
 import infoIcon from '@/assets/info-icon.svg'
@@ -1540,7 +1546,7 @@ onUnmounted(() => {
   font-size: 13px;
   padding: 6px 10px;
   border-radius: 4px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
   z-index: 10;
 }
 
@@ -1556,10 +1562,13 @@ onUnmounted(() => {
 }
 
 /* Smooth fade effect */
-.fade-enter-active, .fade-leave-active {
+.fade-enter-active,
+.fade-leave-active {
   transition: opacity 0.2s ease;
 }
-.fade-enter-from, .fade-leave-to {
+
+.fade-enter-from,
+.fade-leave-to {
   opacity: 0;
 }
 
@@ -1575,7 +1584,17 @@ onUnmounted(() => {
   }
 }
 
+.show-936 {
+  display: none;
+}
+
+.hide-936-over {
+  display: block;
+}
+
 .wa-toggle-link {
+  display: flex;
+  align-items: center;
   color: #000;
   text-decoration: 2px solid #25d366 underline;
   text-underline-offset: 4px;
@@ -1787,10 +1806,20 @@ onUnmounted(() => {
     .wa-qr-wrapper {
       padding: 20px;
     }
+
+    .hide-936-over {
+      display: none;
+    }
+
   }
 
   .wa-qr-footer-card {
     margin-top: 20px;
+  }
+
+  .show-936 {
+    margin-top: 20px;
+    display: block;
   }
 }
 
