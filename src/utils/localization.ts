@@ -427,8 +427,9 @@ export function getLocalizedText(locale: string) {
       qrStep1: 'Open WhatsApp on your phone',
       qrStep2: 'Tap <strong>Menu</strong> or <strong>Settings</strong> and select <strong>Linked Devices</strong>',
       qrStep3: 'Tap <strong>Link a Device</strong>',
-      qrStep4: 'Point your phone at this screen to scan the QR code',
+      qrStep4: 'Scan the QR code to confirm',
       qrToggleLink: 'Link with phone number',
+      onYourPhone: 'On your phone',
       
       // Pairing code
       codeTitle: 'Enter code on phone',
@@ -445,6 +446,11 @@ export function getLocalizedText(locale: string) {
       downloadTitle: 'Download WhatsApp for Windows',
       downloadDesc: 'Make calls, share your screen and get a faster experience when you download the Windows app.',
       downloadButton: 'Download',
+      downloadLink: 'Get the app',
+      
+      // Stay logged in
+      stayLoggedIn: 'Stay logged in on this browser',
+      stayLoggedInTooltip: "If selected, you'll stay logged into WhatsApp Web after closing the browser tab.",
       
       // Footer
       footerSignup: "Don't have a WhatsApp account?",
@@ -477,8 +483,9 @@ export function getLocalizedText(locale: string) {
       qrStep1: '在手机上打开 WhatsApp',
       qrStep2: '点按<strong>菜单</strong>或<strong>设置</strong>，然后选择<strong>已关联的设备</strong>',
       qrStep3: '点按<strong>关联设备</strong>',
-      qrStep4: '将手机指向此屏幕以扫描二维码',
+      qrStep4: '扫描二维码以确认',
       qrToggleLink: '使用手机号码关联',
+      onYourPhone: '在你的手机上',
       
       // Pairing code
       codeTitle: '在手机上输入代码',
@@ -495,6 +502,11 @@ export function getLocalizedText(locale: string) {
       downloadTitle: '下载 WhatsApp Windows 版',
       downloadDesc: '下载 Windows 应用程序后，可以拨打电话、共享屏幕并获得更快的体验。',
       downloadButton: '下载',
+      downloadLink: '获取应用',
+      
+      // Stay logged in
+      stayLoggedIn: '在此浏览器上保持登录状态',
+      stayLoggedInTooltip: '如果选中，关闭浏览器标签页后你将继续登录 WhatsApp 网页版。',
       
       // Footer
       footerSignup: '还没有 WhatsApp 账号？',
