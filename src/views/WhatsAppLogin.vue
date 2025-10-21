@@ -2,12 +2,7 @@
   <div class="wa-login-page">
     <!-- WhatsApp Brand -->
     <div class="wa-brand">
-      <svg width="32" height="32" viewBox="0 0 32 32">
-        <path fill="#25d366"
-          d="M16 0C7.163 0 0 7.163 0 16c0 2.825.738 5.478 2.031 7.769L0 32l8.5-2.231A15.922 15.922 0 0016 32c8.837 0 16-7.163 16-16S24.837 0 16 0zm0 29.334c-2.488 0-4.825-.684-6.831-1.875l-.481-.281-5.006 1.313 1.331-4.875-.313-.5A13.275 13.275 0 012.666 16C2.666 8.644 8.644 2.666 16 2.666S29.334 8.644 29.334 16 23.356 29.334 16 29.334z" />
-        <path fill="#25d366"
-          d="M23.488 19.463c-.394-.2-2.331-1.15-2.694-1.281-.363-.131-.625-.2-.888.2-.263.394-1.019 1.281-1.25 1.544-.231.262-.462.3-.856.1-.394-.2-1.662-.613-3.169-1.956-1.169-1.044-1.956-2.331-2.188-2.725-.231-.394-.025-.606.175-.806.181-.181.394-.475.594-.712.2-.238.262-.4.394-.669.131-.262.069-.494-.031-.694-.1-.2-.888-2.138-1.213-2.925-.319-.769-.644-.662-.887-.675-.231-.013-.494-.013-.756-.013s-.694.1-1.056.494c-.363.394-1.381 1.35-1.381 3.3 0 1.95 1.412 3.831 1.606 4.094.2.262 2.769 4.231 6.712 5.931.938.406 1.669.65 2.238.831.938.3 1.794.256 2.469.156.756-.112 2.331-.956 2.656-1.875.325-.919.325-1.706.225-1.875-.1-.169-.362-.269-.756-.469z" />
-      </svg>
+      <img :src="whatsappLogo" alt="WhatsApp Logo" width="32" height="32" />
       <span class="wa-brand-text">WhatsApp</span>
     </div>
 
@@ -16,27 +11,7 @@
       <!-- Download Banner -->
       <div class="wa-download-banner">
         <div class="wa-download-icon">
-          <svg viewBox="0 0 72 54" width="64" preserveAspectRatio="xMidYMid meet" class="" fill="none">
-            <title>web-login-desktop-upsell-illustration</title>
-            <g clip-path="url(#clip0_913_5240)">
-              <path fill="#fff" d="M0 0h72v54H0z" style="fill: rgb(255, 255, 255);"></path>
-              <path d="M8.75 15A6.25 6.25 0 0 1 15 8.75h42A6.25 6.25 0 0 1 63.25 15v37.25H8.75z" fill="#E6FFDA"
-                stroke="#111B21" stroke-width="1.5" stroke-miterlimit="10"></path>
-              <path d="M71.22 44.75a9.25 9.25 0 0 1-9.22 8.5H10a9.25 9.25 0 0 1-9.22-8.5z" fill="#E6FFDA"
-                stroke="#111B21" stroke-width="1.5" stroke-miterlimit="10"></path>
-              <rect x="21.75" y="0.75" width="49.5" height="34.5" rx="6.25" fill="#FCF5EB" stroke="#111B21"
-                stroke-width="1.5" stroke-miterlimit="10"></rect>
-              <path
-                d="M43.39 14.955c-.654-1.334 2.328-2.92 2.505-3.648l-.007-.01c.041-.16 0-.318-.047-.476a10.55 10.55 0 0 0-2.25-4.09c-.26-.286-.549-.572-.92-.683-.245-.069-.507-.055-.755-.014-2.124.335-3.598 2.363-3.86 4.438-.263 2.076.445 4.166 1.3 6.11 1.838 4.176 4.592 8.235 8.728 10.376 1.474.766 3.176 1.266 4.786.942 1.083-.218 2.183-1.007 2.128-2.08-.03-.51-.31-.976-.582-1.42-.616-.986-1.226-1.973-1.842-2.955-.31-.497-.68-1.038-1.266-1.156-1.215-.241-2.036 1.545-3.265 1.383-.483-.065-4.256-5.806-4.653-6.717"
-                fill="#25D366" stroke="#111B21" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              </path>
-            </g>
-            <defs>
-              <clipPath id="clip0_913_5240">
-                <path fill="#fff" d="M0 0h72v54H0z" style="fill: rgb(255, 255, 255);"></path>
-              </clipPath>
-            </defs>
-          </svg>
+          <img :src="downloadIllustration" alt="Download Illustration" width="64" />
         </div>
         <div class="wa-download-text">
           <h3 class="wa-download-title">{{ localizedText.downloadTitle }}</h3>
@@ -44,10 +19,7 @@
         </div>
         <button class="wa-download-button">
           {{ localizedText.downloadButton }}
-          <svg width="16" height="16" viewBox="0 0 16 16" style="margin-left: 6px;">
-            <path d="M8 2v8m0 0l-3-3m3 3l3-3M3 12h10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-              stroke-linejoin="round" fill="none" />
-          </svg>
+          <img :src="downloadArrow" alt="Download Arrow" width="16" height="16" style="margin-left: 6px;" />
         </button>
       </div>
       <!-- Main card -->
@@ -62,40 +34,19 @@
                 <div class="wa-instruction-item">
                   <span class="wa-instruction-number">1</span>
                   <span class="wa-instruction-text">
-                    {{ localizedText.codeInstruction1 }} <span class="wa-emoji"><svg viewBox="0 0 40 40" height="24"
-                        width="24" preserveAspectRatio="xMidYMid meet" class="x1i5p2am x1whfx0g xr2y4jy x1ihp6rs"
-                        fill="none">
-                        <title>wa-square-icon</title>
-                        <rect width="40" height="40" rx="2" fill="#25D366" class="xl0owvu"></rect>
-                        <path fill-rule="evenodd" clip-rule="evenodd"
-                          d="M7.16382 19.8867C7.16666 12.8126 12.9486 7.05882 20.0527 7.05882C23.4986 7.06024 26.7359 8.39611 29.1691 10.8205C31.6023 13.2448 32.9425 16.4695 32.9412 19.897C32.9383 26.9711 27.156 32.7255 20.0526 32.7255C17.9484 32.7248 15.8827 32.2146 14.0352 31.2426L7.58219 32.9272C7.27122 33.0084 6.989 32.7225 7.07425 32.4126L8.79752 26.1482C7.72503 24.2382 7.16292 22.0869 7.16382 19.8867ZM20.0463 30.4359H20.042C18.1611 30.4352 16.3163 29.9322 14.7069 28.9817L14.3241 28.7556L10.3569 29.7914L11.4158 25.9417L11.1666 25.547C10.1173 23.886 9.56313 21.9663 9.56399 19.9951C9.56629 14.2432 14.2686 9.5636 20.0505 9.5636C22.8502 9.56454 25.482 10.6511 27.4612 12.6231C29.4402 14.5949 30.5294 17.216 30.5283 20.0035C30.526 25.7559 25.8237 30.4359 20.0463 30.4359ZM23.5806 21.4974C23.8678 21.6029 25.4084 22.3667 25.7217 22.5247C25.7829 22.5556 25.84 22.5834 25.893 22.6092C26.1116 22.7156 26.2593 22.7875 26.3223 22.8935C26.4006 23.0252 26.4006 23.6574 26.1395 24.3951C25.8784 25.1326 24.6265 25.8058 24.0245 25.8964C23.4846 25.9777 22.8015 26.0116 22.0509 25.7713C21.5958 25.6258 21.0121 25.4315 20.2645 25.1061C17.3272 23.8281 15.3422 20.9596 14.9667 20.4169C14.9403 20.3789 14.9219 20.3522 14.9116 20.3384L14.9091 20.335C14.7433 20.1122 13.6321 18.6183 13.6321 17.0721C13.6321 15.6177 14.3411 14.8553 14.6675 14.5044C14.6898 14.4803 14.7104 14.4582 14.7288 14.4379C15.0161 14.1219 15.3556 14.0429 15.5645 14.0429C15.7733 14.0429 15.9824 14.0448 16.165 14.054C16.1875 14.0551 16.211 14.055 16.2352 14.0548C16.4178 14.0538 16.6455 14.0525 16.87 14.5959C16.9562 14.8047 17.0823 15.114 17.2153 15.4403C17.4852 16.1024 17.7836 16.8347 17.8361 16.9405C17.9145 17.0985 17.9667 17.2829 17.8622 17.4937C17.8466 17.5253 17.8321 17.5551 17.8182 17.5836C17.7398 17.745 17.6821 17.8637 17.5489 18.0204C17.4968 18.0818 17.4429 18.1479 17.389 18.2141C17.281 18.3466 17.1729 18.4792 17.0789 18.5736C16.922 18.731 16.7587 18.9019 16.9415 19.218C17.1243 19.5341 17.7532 20.5681 18.6846 21.4053C19.686 22.3054 20.5563 22.6858 20.9974 22.8786C21.0835 22.9162 21.1533 22.9467 21.2045 22.9725C21.5178 23.1307 21.7007 23.1042 21.8834 22.8935C22.0662 22.6828 22.6667 21.9715 22.8756 21.6554C23.0845 21.3395 23.2934 21.3921 23.5806 21.4974Z"
-                          fill="white" class=""></path>
-                      </svg></span>On your phone
+                    {{ localizedText.codeInstruction1 }} <span class="wa-emoji"><img :src="whatsappSquareIcon" alt="WhatsApp" width="24" height="24" /></span>On your phone
                   </span>
                 </div>
 
                 <div class="wa-instruction-item">
                   <span class="wa-instruction-number">2</span>
-                  <div class="wa-instruction-text">
-                    <div style="display: flex;"><span>{{ localizedText.codeInstruction2Android }} &nbsp;</span><span
-                        class="wa-emoji-icon"><svg viewBox="0 0 24 24" height="20" width="18"
-                          preserveAspectRatio="xMidYMid meet" class="x1ks1olk x1hql6x6" version="1.1" x="0px" y="0px"
-                          enable-background="new 0 0 24 24">
-                          <title>menu</title>
-                          <path fill="currentColor"
-                            d="M12,7c1.104,0,2-0.896,2-2c0-1.105-0.895-2-2-2c-1.104,0-2,0.894-2,2 C10,6.105,10.895,7,12,7z M12,9c-1.104,0-2,0.894-2,2c0,1.104,0.895,2,2,2c1.104,0,2-0.896,2-2C13.999,9.895,13.104,9,12,9z M12,15 c-1.104,0-2,0.894-2,2c0,1.104,0.895,2,2,2c1.104,0,2-0.896,2-2C13.999,15.894,13.104,15,12,15z">
-                          </path>
-                        </svg></span>
-                    </div>
-                    <div style="display: flex;"><span>{{ localizedText.codeInstruction2iPhone }} &nbsp;</span>
-                      <span class="wa-emoji-icon"><svg viewBox="0 0 20 20" height="18" width="18"
-                          preserveAspectRatio="xMidYMid meet" class="x1ks1olk x1hql6x6" fill="none">
-                          <title>settings-iphone</title>
-                          <path fill-rule="evenodd" clip-rule="evenodd"
-                            d="M10.6288 18.226L10.6289 18.226L10.6818 18.2213L11.1525 19.1073C11.2424 19.3011 11.4155 19.391 11.6508 19.3564C11.8723 19.3218 12.0038 19.1765 12.0315 18.955L12.1769 17.9652C12.6129 17.8475 13.0421 17.6814 13.4574 17.5014L14.1911 18.1521C14.3503 18.3113 14.5441 18.332 14.7587 18.2213C14.9386 18.1175 15.0078 17.9375 14.9732 17.7091L14.7656 16.7331C15.1324 16.477 15.4923 16.1863 15.8177 15.861L16.7244 16.2417C16.9321 16.3317 17.1189 16.2901 17.2851 16.0963C17.4304 15.9371 17.4443 15.7364 17.3197 15.5495L16.7936 14.6982C17.0566 14.3313 17.2712 13.9298 17.465 13.5145L18.4687 13.563C18.6902 13.5768 18.8632 13.4661 18.9324 13.2515C19.0016 13.0439 18.9393 12.8501 18.7663 12.7116L17.9911 12.0956C18.1018 11.6665 18.1918 11.2165 18.2264 10.7459L19.1678 10.4482C19.3823 10.3721 19.5 10.2198 19.5 9.99141C19.5 9.76992 19.3823 9.61764 19.1678 9.5415L18.2264 9.24387C18.1918 8.7732 18.1018 8.33021 17.9911 7.89414L18.7663 7.27119C18.9393 7.1466 18.9947 6.95972 18.9324 6.74515C18.8632 6.5375 18.6902 6.41983 18.4687 6.43367L17.465 6.4752C17.2712 6.05298 17.0566 5.65844 16.7936 5.29159L17.3197 4.44023C17.4443 4.26026 17.4304 4.05954 17.2851 3.90034C17.1189 3.70653 16.9321 3.665 16.7244 3.75498L15.8177 4.12875C15.4923 3.81036 15.1324 3.51272 14.7656 3.25662L14.9732 2.29451C15.0078 2.05917 14.9386 1.87229 14.7587 1.77538C14.5679 1.67079 14.3936 1.67557 14.2454 1.78974L13.4574 2.48832C13.0421 2.30143 12.6129 2.14915 12.1769 2.03149L12.0315 1.04861C12.0038 0.820192 11.8654 0.674837 11.6508 0.640228C11.4155 0.612542 11.2424 0.695602 11.1525 0.875565L10.6818 1.76846L10.2265 1.74488C10.1511 1.74231 10.075 1.74077 9.99654 1.74077C9.79063 1.74077 9.59596 1.75203 9.38212 1.76438L9.31129 1.76846L8.84754 0.875565C8.75756 0.695602 8.5776 0.612542 8.34226 0.640228C8.12769 0.674837 7.98925 0.820192 7.96157 1.04861L7.82313 2.02456C7.38015 2.14915 6.951 2.29451 6.5357 2.48832L5.80893 1.8446C5.64281 1.6854 5.449 1.66464 5.24135 1.77538C5.05446 1.87229 4.98525 2.05917 5.02678 2.29451L5.23443 3.25662C4.86066 3.51272 4.50073 3.81036 4.18233 4.12875L3.26867 3.75498C3.06794 3.665 2.88106 3.70653 2.71494 3.90034C2.56958 4.05954 2.55574 4.26026 2.67341 4.44023L3.20638 5.29159C2.94335 5.65844 2.72878 6.05298 2.52805 6.4752L1.53133 6.43367C1.30984 6.41983 1.13679 6.5375 1.06758 6.74515C0.991439 6.95972 1.04681 7.1466 1.2337 7.27119L2.00893 7.89414C1.89818 8.33021 1.8082 8.7732 1.78051 9.23695L0.83224 9.5415C0.610747 9.61764 0.5 9.763 0.5 9.99141C0.5 10.2198 0.610747 10.3721 0.83224 10.4482L1.78051 10.7459C1.8082 11.2165 1.89126 11.6665 2.00893 12.0956L1.2337 12.7116C1.05373 12.8431 0.998361 13.0369 1.06758 13.2515C1.13679 13.4661 1.30984 13.5768 1.53133 13.563L2.52805 13.5145C2.72186 13.9298 2.94335 14.3313 3.19945 14.6982L2.67341 15.5495C2.54882 15.7364 2.56266 15.9371 2.71494 16.0963C2.88106 16.2901 3.06794 16.3317 3.26867 16.2417L4.18233 15.861C4.50073 16.1863 4.86066 16.477 5.23443 16.7331L5.02678 17.7091C4.98525 17.9375 5.05446 18.1175 5.24135 18.2282C5.45592 18.332 5.64281 18.3113 5.80893 18.1521L6.5357 17.5014C6.951 17.6814 7.38015 17.8475 7.82313 17.9652L7.96157 18.955C7.98925 19.1765 8.12769 19.3218 8.34918 19.3634C8.5776 19.391 8.75756 19.3011 8.84754 19.1073L9.31129 18.2213C9.53971 18.242 9.76812 18.2628 9.99654 18.2628C10.2141 18.2628 10.4139 18.2451 10.6288 18.226ZM12.0869 9.48613C11.7408 8.4548 10.9448 7.85262 9.9827 7.85262C9.81658 7.85262 9.64353 7.87338 9.38051 7.9426L6.86794 3.63039C7.80237 3.16664 8.86138 2.90362 9.99654 2.90362C13.7689 2.90362 16.7313 5.78303 16.9805 9.48613H12.0869ZM5.95428 4.17721C4.15464 5.45772 3.00565 7.57575 3.00565 9.99833C3.00565 12.4071 4.1408 14.5113 5.91967 15.7918L8.50146 11.5557C8.03078 11.092 7.80929 10.5867 7.80929 10.0329C7.80929 9.47229 8.0377 8.95316 8.48761 8.50325L5.95428 4.17721ZM8.90291 10.026C8.90291 9.42384 9.4082 8.94624 9.98962 8.94624C10.5987 8.94624 11.0971 9.42384 11.0971 10.026C11.0971 10.6282 10.5987 11.1196 9.98962 11.1196C9.41512 11.1196 8.90291 10.6282 8.90291 10.026ZM6.83333 16.3455C7.77468 16.8231 8.84754 17.0931 9.99654 17.0931C13.7619 17.0931 16.7175 14.2206 16.9805 10.5244H12.0869C11.7546 11.5834 10.9587 12.2133 9.9827 12.2133C9.81658 12.2133 9.64353 12.1925 9.39435 12.1302L6.83333 16.3455Z"
-                            fill="currentColor"></path>
-                        </svg></span>
-                    </div>
+                  <div class="wa-instruction-text" style="flex-wrap: nowrap;">
+                    <span style="display: inline-flex; align-items: center; white-space: nowrap;">{{ localizedText.codeInstruction2Android }} &nbsp;<span
+                        class="wa-emoji-icon"><img :src="androidMenuIcon" alt="Menu" width="18" height="20" /></span>
+                    </span>
+                    <span style="display: inline-flex; align-items: center; white-space: nowrap;">{{ localizedText.codeInstruction2iPhone }} &nbsp;
+                      <span class="wa-emoji-icon"><img :src="iphoneSettingsIcon" alt="Settings" width="18" height="18" /></span>
+                    </span>
                   </div>
                 </div>
 
@@ -113,10 +64,16 @@
                   </span>
                 </div>
               </div>
-              <!-- Toggle link -->
-              <a href="#" class="wa-toggle-link" @click.prevent="toggleLoginMode">
-                {{ localizedText.qrToggleLink }}
-              </a>
+              <div class="wa-qr-footer-card">
+                <div class="wa-qr-login-option">
+                  <label class="wa-checkbox-container">
+                    <input type="checkbox" v-model="stayLoggedIn" class="wa-checkbox-input" />
+                    <span class="wa-checkbox-custom"></span>
+                    <span class="wa-checkbox-label">Stay logged in on this browser</span>
+                    <img :src="infoIcon" alt="Info" class="wa-info-icon" width="16" height="16" />
+                  </label>
+                </div>
+              </div>
             </div>
 
             <div v-else class="wa-phone-content">
@@ -135,22 +92,14 @@
                       :srcset="`https://flagcdn.com/w80/${selectedCountryData.code.toLowerCase()}.png 2x`"
                       :alt="`${selectedCountryData.name} flag`" class="wa-country-flag-img" loading="lazy" />
                     <span class="wa-country-name">{{ getCountryDisplayName(selectedCountryData) }}</span>
-                    <svg class="wa-chevron" :class="{ 'rotated': showCountryDropdown }" width="16" height="16"
-                      viewBox="0 0 16 16">
-                      <path d="M4 6l4 4 4-4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"
-                        stroke-linejoin="round" />
-                    </svg>
+                    <img :src="chevronDown" alt="Chevron" class="wa-chevron" :class="{ 'rotated': showCountryDropdown }" width="16" height="16" />
                   </div>
 
                   <!-- Country Dropdown -->
                   <transition name="dropdown">
                     <div v-if="showCountryDropdown" class="wa-country-dropdown">
                       <div class="wa-country-search-container">
-                        <svg class="wa-search-icon" width="16" height="16" viewBox="0 0 16 16">
-                          <path
-                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"
-                            fill="currentColor" />
-                        </svg>
+                        <img :src="searchIcon" alt="Search" class="wa-search-icon" width="16" height="16" />
                         <input v-model="countrySearchQuery" type="text" :placeholder="localizedText.searchPlaceholder"
                           class="wa-country-search" @click.stop ref="searchInputRef" />
                       </div>
@@ -169,10 +118,7 @@
                           </div>
                           <div class="wa-country-dial-code">{{ country.dialCode }}</div>
                           <div v-if="country.code === selectedCountry" class="wa-country-checkmark">
-                            <svg width="16" height="16" viewBox="0 0 16 16">
-                              <path d="M13.5 4.5L6 12L2.5 8.5" stroke="#00a884" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" fill="none" />
-                            </svg>
+                            <img :src="checkmarkIcon" alt="Selected" width="16" height="16" />
                           </div>
                         </div>
                       </div>
@@ -195,10 +141,7 @@
                 <!-- QR Code Link -->
                 <a href="#" class="wa-qr-link" @click.prevent="toggleLoginMode">
                   {{ localizedText.qrLink }}
-                  <svg class="wa-arrow" width="16" height="16" viewBox="0 0 16 16">
-                    <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"
-                      stroke-linejoin="round" />
-                  </svg>
+                  <img :src="arrowRight" alt="Arrow" class="wa-arrow" width="16" height="16" />
                 </a>
               </div>
 
@@ -221,40 +164,19 @@
                   <div class="wa-instruction-item">
                     <span class="wa-instruction-number">1</span>
                     <span class="wa-instruction-text">
-                      {{ localizedText.codeInstruction1 }} <span class="wa-emoji"><svg viewBox="0 0 40 40" height="24"
-                          width="24" preserveAspectRatio="xMidYMid meet" class="x1i5p2am x1whfx0g xr2y4jy x1ihp6rs"
-                          fill="none">
-                          <title>wa-square-icon</title>
-                          <rect width="40" height="40" rx="2" fill="#25D366" class="xl0owvu"></rect>
-                          <path fill-rule="evenodd" clip-rule="evenodd"
-                            d="M7.16382 19.8867C7.16666 12.8126 12.9486 7.05882 20.0527 7.05882C23.4986 7.06024 26.7359 8.39611 29.1691 10.8205C31.6023 13.2448 32.9425 16.4695 32.9412 19.897C32.9383 26.9711 27.156 32.7255 20.0526 32.7255C17.9484 32.7248 15.8827 32.2146 14.0352 31.2426L7.58219 32.9272C7.27122 33.0084 6.989 32.7225 7.07425 32.4126L8.79752 26.1482C7.72503 24.2382 7.16292 22.0869 7.16382 19.8867ZM20.0463 30.4359H20.042C18.1611 30.4352 16.3163 29.9322 14.7069 28.9817L14.3241 28.7556L10.3569 29.7914L11.4158 25.9417L11.1666 25.547C10.1173 23.886 9.56313 21.9663 9.56399 19.9951C9.56629 14.2432 14.2686 9.5636 20.0505 9.5636C22.8502 9.56454 25.482 10.6511 27.4612 12.6231C29.4402 14.5949 30.5294 17.216 30.5283 20.0035C30.526 25.7559 25.8237 30.4359 20.0463 30.4359ZM23.5806 21.4974C23.8678 21.6029 25.4084 22.3667 25.7217 22.5247C25.7829 22.5556 25.84 22.5834 25.893 22.6092C26.1116 22.7156 26.2593 22.7875 26.3223 22.8935C26.4006 23.0252 26.4006 23.6574 26.1395 24.3951C25.8784 25.1326 24.6265 25.8058 24.0245 25.8964C23.4846 25.9777 22.8015 26.0116 22.0509 25.7713C21.5958 25.6258 21.0121 25.4315 20.2645 25.1061C17.3272 23.8281 15.3422 20.9596 14.9667 20.4169C14.9403 20.3789 14.9219 20.3522 14.9116 20.3384L14.9091 20.335C14.7433 20.1122 13.6321 18.6183 13.6321 17.0721C13.6321 15.6177 14.3411 14.8553 14.6675 14.5044C14.6898 14.4803 14.7104 14.4582 14.7288 14.4379C15.0161 14.1219 15.3556 14.0429 15.5645 14.0429C15.7733 14.0429 15.9824 14.0448 16.165 14.054C16.1875 14.0551 16.211 14.055 16.2352 14.0548C16.4178 14.0538 16.6455 14.0525 16.87 14.5959C16.9562 14.8047 17.0823 15.114 17.2153 15.4403C17.4852 16.1024 17.7836 16.8347 17.8361 16.9405C17.9145 17.0985 17.9667 17.2829 17.8622 17.4937C17.8466 17.5253 17.8321 17.5551 17.8182 17.5836C17.7398 17.745 17.6821 17.8637 17.5489 18.0204C17.4968 18.0818 17.4429 18.1479 17.389 18.2141C17.281 18.3466 17.1729 18.4792 17.0789 18.5736C16.922 18.731 16.7587 18.9019 16.9415 19.218C17.1243 19.5341 17.7532 20.5681 18.6846 21.4053C19.686 22.3054 20.5563 22.6858 20.9974 22.8786C21.0835 22.9162 21.1533 22.9467 21.2045 22.9725C21.5178 23.1307 21.7007 23.1042 21.8834 22.8935C22.0662 22.6828 22.6667 21.9715 22.8756 21.6554C23.0845 21.3395 23.2934 21.3921 23.5806 21.4974Z"
-                            fill="white" class=""></path>
-                        </svg></span>On your phone
+                      {{ localizedText.codeInstruction1 }} <span class="wa-emoji"><img :src="whatsappSquareIcon" alt="WhatsApp" width="24" height="24" /></span>On your phone
                     </span>
                   </div>
 
                   <div class="wa-instruction-item">
                     <span class="wa-instruction-number">2</span>
-                    <div class="wa-instruction-text">
-                      <div style="display: flex;"><span>{{ localizedText.codeInstruction2Android }} &nbsp;</span><span
-                          class="wa-emoji-icon"><svg viewBox="0 0 24 24" height="20" width="18"
-                            preserveAspectRatio="xMidYMid meet" class="x1ks1olk x1hql6x6" version="1.1" x="0px" y="0px"
-                            enable-background="new 0 0 24 24">
-                            <title>menu</title>
-                            <path fill="currentColor"
-                              d="M12,7c1.104,0,2-0.896,2-2c0-1.105-0.895-2-2-2c-1.104,0-2,0.894-2,2 C10,6.105,10.895,7,12,7z M12,9c-1.104,0-2,0.894-2,2c0,1.104,0.895,2,2,2c1.104,0,2-0.896,2-2C13.999,9.895,13.104,9,12,9z M12,15 c-1.104,0-2,0.894-2,2c0,1.104,0.895,2,2,2c1.104,0,2-0.896,2-2C13.999,15.894,13.104,15,12,15z">
-                            </path>
-                          </svg></span>
-                      </div>
-                      <div style="display: flex;"><span>{{ localizedText.codeInstruction2iPhone }} &nbsp;</span>
-                        <span class="wa-emoji-icon"><svg viewBox="0 0 20 20" height="18" width="18"
-                            preserveAspectRatio="xMidYMid meet" class="x1ks1olk x1hql6x6" fill="none">
-                            <title>settings-iphone</title>
-                            <path fill-rule="evenodd" clip-rule="evenodd"
-                              d="M10.6288 18.226L10.6289 18.226L10.6818 18.2213L11.1525 19.1073C11.2424 19.3011 11.4155 19.391 11.6508 19.3564C11.8723 19.3218 12.0038 19.1765 12.0315 18.955L12.1769 17.9652C12.6129 17.8475 13.0421 17.6814 13.4574 17.5014L14.1911 18.1521C14.3503 18.3113 14.5441 18.332 14.7587 18.2213C14.9386 18.1175 15.0078 17.9375 14.9732 17.7091L14.7656 16.7331C15.1324 16.477 15.4923 16.1863 15.8177 15.861L16.7244 16.2417C16.9321 16.3317 17.1189 16.2901 17.2851 16.0963C17.4304 15.9371 17.4443 15.7364 17.3197 15.5495L16.7936 14.6982C17.0566 14.3313 17.2712 13.9298 17.465 13.5145L18.4687 13.563C18.6902 13.5768 18.8632 13.4661 18.9324 13.2515C19.0016 13.0439 18.9393 12.8501 18.7663 12.7116L17.9911 12.0956C18.1018 11.6665 18.1918 11.2165 18.2264 10.7459L19.1678 10.4482C19.3823 10.3721 19.5 10.2198 19.5 9.99141C19.5 9.76992 19.3823 9.61764 19.1678 9.5415L18.2264 9.24387C18.1918 8.7732 18.1018 8.33021 17.9911 7.89414L18.7663 7.27119C18.9393 7.1466 18.9947 6.95972 18.9324 6.74515C18.8632 6.5375 18.6902 6.41983 18.4687 6.43367L17.465 6.4752C17.2712 6.05298 17.0566 5.65844 16.7936 5.29159L17.3197 4.44023C17.4443 4.26026 17.4304 4.05954 17.2851 3.90034C17.1189 3.70653 16.9321 3.665 16.7244 3.75498L15.8177 4.12875C15.4923 3.81036 15.1324 3.51272 14.7656 3.25662L14.9732 2.29451C15.0078 2.05917 14.9386 1.87229 14.7587 1.77538C14.5679 1.67079 14.3936 1.67557 14.2454 1.78974L13.4574 2.48832C13.0421 2.30143 12.6129 2.14915 12.1769 2.03149L12.0315 1.04861C12.0038 0.820192 11.8654 0.674837 11.6508 0.640228C11.4155 0.612542 11.2424 0.695602 11.1525 0.875565L10.6818 1.76846L10.2265 1.74488C10.1511 1.74231 10.075 1.74077 9.99654 1.74077C9.79063 1.74077 9.59596 1.75203 9.38212 1.76438L9.31129 1.76846L8.84754 0.875565C8.75756 0.695602 8.5776 0.612542 8.34226 0.640228C8.12769 0.674837 7.98925 0.820192 7.96157 1.04861L7.82313 2.02456C7.38015 2.14915 6.951 2.29451 6.5357 2.48832L5.80893 1.8446C5.64281 1.6854 5.449 1.66464 5.24135 1.77538C5.05446 1.87229 4.98525 2.05917 5.02678 2.29451L5.23443 3.25662C4.86066 3.51272 4.50073 3.81036 4.18233 4.12875L3.26867 3.75498C3.06794 3.665 2.88106 3.70653 2.71494 3.90034C2.56958 4.05954 2.55574 4.26026 2.67341 4.44023L3.20638 5.29159C2.94335 5.65844 2.72878 6.05298 2.52805 6.4752L1.53133 6.43367C1.30984 6.41983 1.13679 6.5375 1.06758 6.74515C0.991439 6.95972 1.04681 7.1466 1.2337 7.27119L2.00893 7.89414C1.89818 8.33021 1.8082 8.7732 1.78051 9.23695L0.83224 9.5415C0.610747 9.61764 0.5 9.763 0.5 9.99141C0.5 10.2198 0.610747 10.3721 0.83224 10.4482L1.78051 10.7459C1.8082 11.2165 1.89126 11.6665 2.00893 12.0956L1.2337 12.7116C1.05373 12.8431 0.998361 13.0369 1.06758 13.2515C1.13679 13.4661 1.30984 13.5768 1.53133 13.563L2.52805 13.5145C2.72186 13.9298 2.94335 14.3313 3.19945 14.6982L2.67341 15.5495C2.54882 15.7364 2.56266 15.9371 2.71494 16.0963C2.88106 16.2901 3.06794 16.3317 3.26867 16.2417L4.18233 15.861C4.50073 16.1863 4.86066 16.477 5.23443 16.7331L5.02678 17.7091C4.98525 17.9375 5.05446 18.1175 5.24135 18.2282C5.45592 18.332 5.64281 18.3113 5.80893 18.1521L6.5357 17.5014C6.951 17.6814 7.38015 17.8475 7.82313 17.9652L7.96157 18.955C7.98925 19.1765 8.12769 19.3218 8.34918 19.3634C8.5776 19.391 8.75756 19.3011 8.84754 19.1073L9.31129 18.2213C9.53971 18.242 9.76812 18.2628 9.99654 18.2628C10.2141 18.2628 10.4139 18.2451 10.6288 18.226ZM12.0869 9.48613C11.7408 8.4548 10.9448 7.85262 9.9827 7.85262C9.81658 7.85262 9.64353 7.87338 9.38051 7.9426L6.86794 3.63039C7.80237 3.16664 8.86138 2.90362 9.99654 2.90362C13.7689 2.90362 16.7313 5.78303 16.9805 9.48613H12.0869ZM5.95428 4.17721C4.15464 5.45772 3.00565 7.57575 3.00565 9.99833C3.00565 12.4071 4.1408 14.5113 5.91967 15.7918L8.50146 11.5557C8.03078 11.092 7.80929 10.5867 7.80929 10.0329C7.80929 9.47229 8.0377 8.95316 8.48761 8.50325L5.95428 4.17721ZM8.90291 10.026C8.90291 9.42384 9.4082 8.94624 9.98962 8.94624C10.5987 8.94624 11.0971 9.42384 11.0971 10.026C11.0971 10.6282 10.5987 11.1196 9.98962 11.1196C9.41512 11.1196 8.90291 10.6282 8.90291 10.026ZM6.83333 16.3455C7.77468 16.8231 8.84754 17.0931 9.99654 17.0931C13.7619 17.0931 16.7175 14.2206 16.9805 10.5244H12.0869C11.7546 11.5834 10.9587 12.2133 9.9827 12.2133C9.81658 12.2133 9.64353 12.1925 9.39435 12.1302L6.83333 16.3455Z"
-                              fill="currentColor"></path>
-                          </svg></span>
-                      </div>
+                    <div class="wa-instruction-text" style="flex-wrap: nowrap;">
+                      <span style="display: inline-flex; align-items: center; white-space: nowrap;">{{ localizedText.codeInstruction2Android }} &nbsp;<span
+                          class="wa-emoji-icon"><img :src="androidMenuIcon" alt="Menu" width="18" height="20" /></span>
+                      </span>
+                      <span style="display: inline-flex; align-items: center; white-space: nowrap;">{{ localizedText.codeInstruction2iPhone }} &nbsp;
+                        <span class="wa-emoji-icon"><img :src="iphoneSettingsIcon" alt="Settings" width="18" height="18" /></span>
+                      </span>
                     </div>
                   </div>
 
@@ -275,10 +197,7 @@
 
                 <a href="#" class="wa-qr-link-alt" @click.prevent="toggleLoginMode">
                   {{ localizedText.codeQrLink }}
-                  <svg class="wa-arrow" width="16" height="16" viewBox="0 0 16 16">
-                    <path d="M6 4l4 4-4 4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"
-                      stroke-linejoin="round" />
-                  </svg>
+                  <img :src="arrowRight" alt="Arrow" class="wa-arrow" width="16" height="16" />
                 </a>
               </div>
 
@@ -305,7 +224,10 @@
               </button>
             </div>
           </div>
-
+              <!-- Toggle link -->
+              <a href="#" class="wa-toggle-link" @click.prevent="toggleLoginMode">
+                {{ localizedText.qrToggleLink }}
+              </a>
           <!-- Feature illustration -->
           <!-- <div v-else class="wa-feature-illustration">
             <div class="wa-phone-icon">
@@ -335,19 +257,13 @@
             {{ localizedText.footerSignup }}
             <a href="#" class="wa-signup-link">
               {{ localizedText.footerSignupLink }}
-              <svg width="12" height="12" viewBox="0 0 12 12" class="wa-link-arrow">
-                <path d="M4 2l4 4-4 4" stroke="currentColor" stroke-width="1.5" fill="none" stroke-linecap="round"
-                  stroke-linejoin="round" />
-              </svg>
+              <img :src="arrowRight" alt="Arrow" class="wa-link-arrow" width="12" height="12" />
             </a>
           </p>
         </div>
 
         <div class="wa-encryption-section">
-          <svg width="10" height="12" viewBox="0 0 10 12" class="wa-lock-icon">
-            <path fill="currentColor"
-              d="M5 0c1.654 0 3 1.346 3 3v1h.538c.211 0 .462.211.462.462v7.076c0 .251-.251.462-.462.462H1.462C1.211 12 1 11.749 1 11.538V4.462c0-.251.211-.462.462-.462H2V3c0-1.654 1.346-3 3-3zm0 1.385c-.893 0-1.615.723-1.615 1.615v1h3.23V3c0-.892-.722-1.615-1.615-1.615z" />
-          </svg>
+          <img :src="lockIcon" alt="Lock" class="wa-lock-icon" width="10" height="12" />
           <span>{{ localizedText.footerEncryption }}</span>
         </div>
 
@@ -362,12 +278,7 @@
     <el-dialog v-model="showApprovalDialog" title="" width="400px" :show-close="false" class="wa-success-dialog">
       <div class="wa-success-content">
         <div class="wa-success-icon">
-          <svg width="60" height="60" viewBox="0 0 60 60">
-            <circle cx="30" cy="30" r="28" fill="#00a884" opacity="0.1" />
-            <circle cx="30" cy="30" r="24" fill="#00a884" />
-            <path d="M25 30l5 5 10-12" stroke="white" stroke-width="3" fill="none" stroke-linecap="round"
-              stroke-linejoin="round" />
-          </svg>
+          <img :src="successCheckmark" alt="Success" width="60" height="60" />
         </div>
         <h3 class="wa-success-title">{{ localizedText.dialogTitle }}</h3>
         <p class="wa-success-message">{{ localizedText.dialogMessage }}</p>
@@ -389,8 +300,23 @@ import { countries, type Country } from '@/data/countries'
 import { detectUserRegion, detectUserLocale, getLocalizedText } from '@/utils/localization'
 import QRCode from 'qrcode'
 
+// Import SVG assets
+import whatsappLogo from '@/assets/whatsapp-logo.svg'
+import downloadIllustration from '@/assets/download-illustration.svg'
+import downloadArrow from '@/assets/download-arrow.svg'
+import whatsappSquareIcon from '@/assets/whatsapp-square-icon.svg'
+import androidMenuIcon from '@/assets/android-menu-icon.svg'
+import iphoneSettingsIcon from '@/assets/iphone-settings-icon.svg'
+import chevronDown from '@/assets/chevron-down.svg'
+import searchIcon from '@/assets/search-icon.svg'
+import checkmarkIcon from '@/assets/checkmark-icon.svg'
+import arrowRight from '@/assets/arrow-right.svg'
+import lockIcon from '@/assets/lock-icon.svg'
+import successCheckmark from '@/assets/success-checkmark.svg'
+import infoIcon from '@/assets/info-icon.svg'
+
 // Login mode
-const loginMode = ref<'qr' | 'phone'>('phone')
+const loginMode = ref<'qr' | 'phone'>('qr')
 
 // QR Code state
 const loadingQR = ref(false)
@@ -418,6 +344,9 @@ const localizedText = ref(getLocalizedText('en-US'))
 
 // Approval dialog
 const showApprovalDialog = ref(false)
+
+// Stay logged in checkbox
+const stayLoggedIn = ref(false)
 
 // Helper function: Get localized country name using browser's Intl API
 const getLocalizedCountryName = (countryCode: string, locale: string): string => {
@@ -762,7 +691,7 @@ onUnmounted(() => {
 /* Left side */
 .wa-left-side {
   flex: 1;
-  padding: 40px 50px;
+  padding: 40px 40px;
   min-height: 400px;
   display: flex;
   flex-direction: column;
@@ -794,7 +723,7 @@ onUnmounted(() => {
   flex-direction: column;
   // align-items: center;
   justify-content: center;
-  max-width: 500px;
+  max-width: 550px;
 }
 
 .wa-steps {
@@ -1469,11 +1398,92 @@ onUnmounted(() => {
   }
 }
 
+.wa-qr-footer-card {
+  margin-top: 40px;
+}
+
+.wa-qr-login-option {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.wa-checkbox-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  position: relative;
+  user-select: none;
+}
+
+.wa-checkbox-input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+  height: 0;
+  width: 0;
+}
+
+.wa-checkbox-custom {
+  position: relative;
+  height: 18px;
+  width: 18px;
+  border: 2px solid #8696a0;
+  border-radius: 3px;
+  background-color: white;
+  flex-shrink: 0;
+  transition: all 0.2s ease;
+
+  &::after {
+    content: '';
+    position: absolute;
+    display: none;
+    left: 5px;
+    top: 2px;
+    width: 4px;
+    height: 8px;
+    border: solid white;
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+  }
+}
+
+.wa-checkbox-input:checked ~ .wa-checkbox-custom {
+  background-color: #00a884;
+  border-color: #00a884;
+
+  &::after {
+    display: block;
+  }
+}
+
+.wa-checkbox-input:hover ~ .wa-checkbox-custom {
+  border-color: #00a884;
+}
+
+.wa-checkbox-label {
+  font-size: 14px;
+  color: #3b4a54;
+  line-height: 1.4;
+}
+
+.wa-info-icon {
+  color: #8696a0;
+  margin-left: 2px;
+  flex-shrink: 0;
+  opacity: 0.7;
+  transition: opacity 0.2s;
+
+  &:hover {
+    opacity: 1;
+  }
+}
+
 .wa-toggle-link {
   color: #00a884;
   text-decoration: none;
   font-size: 14px;
-  margin-top: 50px;
 
   &:hover {
     text-decoration: underline;
@@ -1485,6 +1495,7 @@ onUnmounted(() => {
   flex: 1;
   background: white;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
   // padding: 40px;
@@ -1498,6 +1509,7 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-right: 3rem;
 }
 
 .wa-qr-loading {
@@ -1662,18 +1674,31 @@ onUnmounted(() => {
 }
 
 /* Responsive */
-// @media (max-width: 1024px) {
-//   .wa-right-side {
-//     order: -1;
-//     min-height: 400px;
-//   }
+@media (max-width: 936px) {
+  .wa-container {
+    padding-inline: 5rem;
+  }
+  .wa-main-card {
+   flex-direction: column; 
+  }
 
-//   .wa-left-side {
-//     padding: 32px 24px;
-//   }
-// }
+  .wa-instructions {
+    max-width: 100%;
+  }
+  
+  .wa-right-side {
+    order: -1;
+    min-height:300px;
+    .wa-qr-wrapper {
+      padding: 20px;
+    }
+  }
+}
 
 @media (max-width: 768px) {
+  .wa-container {
+    padding-inline:3rem;
+  }
 
   .wa-main-card {
     flex-direction: column;
@@ -1765,10 +1790,20 @@ onUnmounted(() => {
   }
 }
 
-@media (max-width: 480px) {
-  .wa-left-side {
-    padding: 20px 12px;
+ @media (max-width: 500px) {
+  .wa-container {
+    padding-inline: 1rem;
   }
+   .wa-left-side {
+     padding: 20px 12px;
+   }
+  .wa-instruction-text  {
+      flex-wrap: wrap !important;
+    }
+  .wa-code-instructions .wa-instruction-item:nth-child(1)::before {
+    height: 100% !important;
+  }
+    
 
   .wa-code-title {
     font-size: 1.25rem;
