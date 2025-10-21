@@ -16,6 +16,10 @@
         <div class="wa-download-text">
           <h3 class="wa-download-title">{{ localizedText.downloadTitle }}</h3>
           <p class="wa-download-desc">{{ localizedText.downloadDesc }}</p>
+          <a href="#" class="wa-download-link">
+            {{ localizedText.downloadLink }}
+            <img :src="rightArrow" alt="rightArrow" width="16" height="16" />
+          </a>
         </div>
         <button class="wa-download-button">
           {{ localizedText.downloadButton }}
@@ -35,7 +39,7 @@
                   <span class="wa-instruction-number">1</span>
                   <span class="wa-instruction-text">
                     {{ localizedText.codeInstruction1 }} <span class="wa-emoji"><img :src="whatsappSquareIcon"
-                        alt="WhatsApp" width="24" height="24" /></span>On your phone
+                        alt="WhatsApp" width="24" height="24" /></span>{{ localizedText.onYourPhone }}
                   </span>
                 </div>
 
@@ -64,7 +68,7 @@
                 <div class="wa-instruction-item">
                   <span class="wa-instruction-number">4</span>
                   <span class="wa-instruction-text">
-                    Scan the QR code to confirm
+                    {{ localizedText.qrStep4 }}
                   </span>
                 </div>
               </div>
@@ -73,7 +77,7 @@
                   <label class="wa-checkbox-container">
                     <input type="checkbox" v-model="stayLoggedIn" class="wa-checkbox-input" />
                     <span class="wa-checkbox-custom"></span>
-                    <span class="wa-checkbox-label">Stay logged in on this browser</span>
+                    <span class="wa-checkbox-label">{{ localizedText.stayLoggedIn }}</span>
                     <!-- <img :src="infoIcon" alt="Info" class="wa-info-icon" width="16" height="16" /> -->
                   </label>
                   <!-- Tooltip Wrapper -->
@@ -83,7 +87,7 @@
                     <!-- Tooltip Text -->
                     <transition name="fade">
                       <div v-if="showTooltip" class="wa-tooltip">
-                        If selected, you'll stay logged into WhatsApp Web after closing the browser tab.
+                        {{ localizedText.stayLoggedInTooltip }}
                       </div>
                     </transition>
                   </div>
@@ -186,7 +190,7 @@
                     <span class="wa-instruction-number">1</span>
                     <span class="wa-instruction-text">
                       {{ localizedText.codeInstruction1 }} <span class="wa-emoji"><img :src="whatsappSquareIcon"
-                          alt="WhatsApp" width="24" height="24" /></span>On your phone
+                          alt="WhatsApp" width="24" height="24" /></span>{{ localizedText.onYourPhone }}
                     </span>
                   </div>
 
@@ -845,6 +849,22 @@ onUnmounted(() => {
   color: #111b21;
   margin: 0;
   line-height: 1.4;
+}
+
+.wa-download-link {
+  display: none;
+  align-items: center;
+  gap: 6px;
+  color: #000;
+  text-decoration: 2px solid #25d366 underline;
+  text-underline-offset: 4px;
+  font-size: 1rem;
+  font-weight: 500;
+  margin-top: 8px;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .wa-download-button {
@@ -1589,11 +1609,10 @@ onUnmounted(() => {
 }
 
 .hide-936-over {
-  display: block;
+  display: flex;
 }
 
 .wa-toggle-link {
-  display: flex;
   align-items: center;
   color: #000;
   text-decoration: 2px solid #25d366 underline;
@@ -1819,7 +1838,24 @@ onUnmounted(() => {
 
   .show-936 {
     margin-top: 20px;
-    display: block;
+    display: flex;
+  }
+
+  // Download banner modifications
+  .wa-download-banner {
+    padding: 20px 32px;
+  }
+
+  .wa-download-desc {
+    display: none;
+  }
+
+  .wa-download-button {
+    display: none;
+  }
+
+  .wa-download-link {
+    display: inline-flex;
   }
 }
 
