@@ -1,13 +1,25 @@
 <template>
-  <div class="wa-code-boxes-container">
-    <div class="wa-code-box" v-for="(char, index) in codeArray" :key="index" v-memo="[char]">
-      {{ char }}
+  <div class="wa-code-wrapper">
+    <div class="wa-code-boxes-container">
+      <div class="wa-code-box" v-for="(char, index) in codeArray" :key="index" v-memo="[char]">
+        {{ char }}
+      </div>
     </div>
+    <button class="wa-code-copy-btn" @click="copyCode">
+      <img
+        src="@/assets/copy-icon.svg"
+        alt="Copy"
+        width="16"
+        height="16"
+        style="margin-right: 8px"
+      />
+      {{ isCopied ? 'Copied!' : 'Copy Code' }}
+    </button>
   </div>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 
 interface Props {
   code: string
@@ -15,13 +27,40 @@ interface Props {
 
 const props = defineProps<Props>()
 
+const isCopied = ref(false)
+let copyTimeout: number | undefined
+
 const codeArray = computed(() => {
   if (!props.code) return []
   return props.code.split('')
 })
+
+const copyCode = async () => {
+  try {
+    await navigator.clipboard.writeText(props.code)
+    isCopied.value = true
+    
+    // Reset after 2 seconds
+    if (copyTimeout) {
+      clearTimeout(copyTimeout)
+    }
+    copyTimeout = window.setTimeout(() => {
+      isCopied.value = false
+    }, 2000)
+  } catch (err) {
+    console.error('Failed to copy code:', err)
+  }
+}
 </script>
 
 <style scoped lang="scss">
+.wa-code-wrapper {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .wa-code-boxes-container {
   display: flex;
   gap: 8px;
@@ -33,6 +72,41 @@ const codeArray = computed(() => {
   border-radius: 12px;
   width: 100%;
   overflow-x: auto;
+}
+
+.wa-code-copy-btn {
+  width: fit-content;
+  margin-top: 20px;
+  padding: 12px 24px;
+  background: #1daa61;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+  outline: none;
+  display: flex;
+  align-items: center;
+
+  img {
+    filter: brightness(0) invert(1);
+  }
+
+  &:hover {
+    background: #06cf9c;
+  }
+
+  &:active {
+    background: #008f6f;
+  }
+
+  &:disabled {
+    background: #d1d7db;
+    color: #8696a0;
+    cursor: not-allowed;
+  }
 }
 
 .wa-code-box {
