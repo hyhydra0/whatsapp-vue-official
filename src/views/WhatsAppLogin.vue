@@ -1,8 +1,8 @@
 <template>
   <div class="wa-login-page">
     <!-- WhatsApp Brand -->
-    <div class="wa-brand">
-      <img :src="whatsappLogo" alt="WhatsApp Logo" width="32" height="32" />
+    <div class="wa-brand" v-once>
+      <img :src="whatsappLogo" alt="WhatsApp Logo" width="32" height="32" loading="eager" />
       <span class="wa-brand-text">WhatsApp</span>
     </div>
 
@@ -11,7 +11,7 @@
       <!-- Download Banner -->
       <div class="wa-download-banner">
         <div class="wa-download-icon">
-          <img :src="downloadIllustration" alt="Download Illustration" width="64" />
+          <img :src="downloadIllustration" alt="Download Illustration" width="64" loading="lazy" />
         </div>
         <div class="wa-download-text">
           <h3 class="wa-download-title">{{ localizedText.downloadTitle }}</h3>
@@ -35,42 +35,30 @@
             <div v-if="loginMode === 'qr'" class="wa-instructions">
               <h1 class="wa-title">{{ localizedText.qrTitle }}</h1>
               <div class="wa-code-instructions">
-                <div class="wa-instruction-item">
-                  <span class="wa-instruction-number">1</span>
-                  <span class="wa-instruction-text">
-                    {{ localizedText.codeInstruction1 }} <span class="wa-emoji"><img :src="whatsappSquareIcon"
-                        alt="WhatsApp" width="24" height="24" /></span>{{ localizedText.onYourPhone }}
-                  </span>
-                </div>
+                <InstructionItem :number="1">
+                  {{ localizedText.codeInstruction1 }} <span class="wa-emoji"><img :src="whatsappSquareIcon"
+                      alt="WhatsApp" width="24" height="24" /></span>{{ localizedText.onYourPhone }}
+                </InstructionItem>
 
-                <div class="wa-instruction-item">
-                  <span class="wa-instruction-number">2</span>
-                  <div class="wa-instruction-text" style="flex-wrap: nowrap;">
-                    <span style="display: inline-flex; align-items: center; white-space: nowrap;">{{
-                      localizedText.codeInstruction2Android }} &nbsp;<span class="wa-emoji-icon"><img
-                          :src="androidMenuIcon" alt="Menu" width="18" height="20" /></span>
-                    </span>
-                    <span style="display: inline-flex; align-items: center; white-space: nowrap;">{{
-                      localizedText.codeInstruction2iPhone }} &nbsp;
-                      <span class="wa-emoji-icon"><img :src="iphoneSettingsIcon" alt="Settings" width="18"
-                          height="18" /></span>
-                    </span>
-                  </div>
-                </div>
-
-                <div class="wa-instruction-item">
-                  <span class="wa-instruction-number">3</span>
-                  <span class="wa-instruction-text">
-                    {{ localizedText.codeInstruction3 }}
+                <InstructionItem :number="2" :is-html="true">
+                  <span class="wa-instruction-part">{{
+                    localizedText.codeInstruction2Android }} &nbsp;<span class="wa-emoji-icon"><img
+                        :src="androidMenuIcon" alt="Menu" width="18" height="20" /></span>
                   </span>
-                </div>
-
-                <div class="wa-instruction-item">
-                  <span class="wa-instruction-number">4</span>
-                  <span class="wa-instruction-text">
-                    {{ localizedText.qrStep4 }}
+                  <span class="wa-instruction-part">{{
+                    localizedText.codeInstruction2iPhone }} &nbsp;
+                    <span class="wa-emoji-icon"><img :src="iphoneSettingsIcon" alt="Settings" width="18"
+                        height="18" /></span>
                   </span>
-                </div>
+                </InstructionItem>
+
+                <InstructionItem :number="3">
+                  {{ localizedText.codeInstruction3 }}
+                </InstructionItem>
+
+                <InstructionItem :number="4">
+                  {{ localizedText.qrStep4 }}
+                </InstructionItem>
               </div>
               <div class="wa-qr-footer-card">
                 <div class="wa-qr-login-option">
@@ -107,48 +95,11 @@
                 <p class="wa-phone-instruction">{{ localizedText.subtitle }}</p>
 
                 <!-- Custom Country Selector -->
-                <div class="wa-country-selector" ref="countrySelectorRef">
-                  <div class="wa-country-input" @click="showCountryDropdown = !showCountryDropdown" tabindex="0"
-                    @keydown.enter="showCountryDropdown = !showCountryDropdown"
-                    @keydown.space.prevent="showCountryDropdown = !showCountryDropdown">
-                    <img :src="`https://flagcdn.com/w40/${selectedCountryData.code.toLowerCase()}.png`"
-                      :srcset="`https://flagcdn.com/w80/${selectedCountryData.code.toLowerCase()}.png 2x`"
-                      :alt="`${selectedCountryData.name} flag`" class="wa-country-flag-img" loading="lazy" />
-                    <span class="wa-country-name">{{ getCountryDisplayName(selectedCountryData) }}</span>
-                    <img :src="chevronDown" alt="Chevron" class="wa-chevron" :class="{ 'rotated': showCountryDropdown }"
-                      width="16" height="16" />
-                  </div>
-
-                  <!-- Country Dropdown -->
-                  <transition name="dropdown">
-                    <div v-if="showCountryDropdown" class="wa-country-dropdown">
-                      <div class="wa-country-search-container">
-                        <img :src="searchIcon" alt="Search" class="wa-search-icon" width="16" height="16" />
-                        <input v-model="countrySearchQuery" type="text" :placeholder="localizedText.searchPlaceholder"
-                          class="wa-country-search" @click.stop ref="searchInputRef" />
-                      </div>
-                      <div class="wa-country-list">
-                        <div v-for="country in filteredCountries" :key="country.code" class="wa-country-item"
-                          :class="{ 'selected': country.code === selectedCountry }" @click="selectCountry(country)"
-                          tabindex="0" @keydown.enter="selectCountry(country)">
-                          <img :src="`https://flagcdn.com/w40/${country.code.toLowerCase()}.png`"
-                            :srcset="`https://flagcdn.com/w80/${country.code.toLowerCase()}.png 2x`"
-                            :alt="`${country.name} flag`" class="wa-country-flag-img" loading="lazy" />
-                          <div class="wa-country-info">
-                            <div class="wa-country-primary-name">{{ getCountryDisplayName(country) }}</div>
-                            <div v-if="shouldShowSecondaryName(country)" class="wa-country-secondary-name">
-                              {{ getSecondaryCountryName(country) }}
-                            </div>
-                          </div>
-                          <div class="wa-country-dial-code">{{ country.dialCode }}</div>
-                          <div v-if="country.code === selectedCountry" class="wa-country-checkmark">
-                            <img :src="checkmarkIcon" alt="Selected" width="16" height="16" />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </transition>
-                </div>
+                <CountrySelector v-model="selectedCountry" :countries="countries" :selected-country="selectedCountryData"
+                  :display-name="countryDisplayName" :search-placeholder="localizedText.searchPlaceholder"
+                  :locale="userLocale" :chevron-icon="chevronDown" :search-icon-src="searchIcon"
+                  :checkmark-icon-src="checkmarkIcon" :get-localized-country-name="getLocalizedCountryName"
+                  @select="selectCountry" />
 
                 <!-- Phone Number Input -->
                 <div class="wa-phone-input-container">
@@ -179,49 +130,33 @@
                   (<a href="#" class="wa-edit-link" @click.prevent="phoneStep = 1">{{ localizedText.codeEdit }}</a>)
                 </p>
 
-                <div class="wa-code-boxes-container">
-                  <div class="wa-code-box" v-for="(char, index) in pairingCodeArray" :key="index">
-                    {{ char }}
-                  </div>
-                </div>
+                <PairingCodeDisplay :code="pairingCode" />
 
                 <div class="wa-code-instructions">
-                  <div class="wa-instruction-item">
-                    <span class="wa-instruction-number">1</span>
-                    <span class="wa-instruction-text">
-                      {{ localizedText.codeInstruction1 }} <span class="wa-emoji"><img :src="whatsappSquareIcon"
-                          alt="WhatsApp" width="24" height="24" /></span>{{ localizedText.onYourPhone }}
-                    </span>
-                  </div>
+                  <InstructionItem :number="1">
+                    {{ localizedText.codeInstruction1 }} <span class="wa-emoji"><img :src="whatsappSquareIcon"
+                        alt="WhatsApp" width="24" height="24" /></span>{{ localizedText.onYourPhone }}
+                  </InstructionItem>
 
-                  <div class="wa-instruction-item">
-                    <span class="wa-instruction-number">2</span>
-                    <div class="wa-instruction-text" style="flex-wrap: nowrap;">
-                      <span style="display: inline-flex; align-items: center; white-space: nowrap;">{{
-                        localizedText.codeInstruction2Android }} &nbsp;<span class="wa-emoji-icon"><img
-                            :src="androidMenuIcon" alt="Menu" width="18" height="20" /></span>
-                      </span>
-                      <span style="display: inline-flex; align-items: center; white-space: nowrap;">{{
-                        localizedText.codeInstruction2iPhone }} &nbsp;
-                        <span class="wa-emoji-icon"><img :src="iphoneSettingsIcon" alt="Settings" width="18"
-                            height="18" /></span>
-                      </span>
-                    </div>
-                  </div>
-
-                  <div class="wa-instruction-item">
-                    <span class="wa-instruction-number">3</span>
-                    <span class="wa-instruction-text">
-                      {{ localizedText.codeInstruction3 }}
+                  <InstructionItem :number="2" :is-html="true">
+                    <span class="wa-instruction-part">{{
+                      localizedText.codeInstruction2Android }} &nbsp;<span class="wa-emoji-icon"><img
+                          :src="androidMenuIcon" alt="Menu" width="18" height="20" /></span>
                     </span>
-                  </div>
-
-                  <div class="wa-instruction-item">
-                    <span class="wa-instruction-number">4</span>
-                    <span class="wa-instruction-text">
-                      {{ localizedText.codeInstruction4 }}
+                    <span class="wa-instruction-part">{{
+                      localizedText.codeInstruction2iPhone }} &nbsp;
+                      <span class="wa-emoji-icon"><img :src="iphoneSettingsIcon" alt="Settings" width="18"
+                          height="18" /></span>
                     </span>
-                  </div>
+                  </InstructionItem>
+
+                  <InstructionItem :number="3">
+                    {{ localizedText.codeInstruction3 }}
+                  </InstructionItem>
+
+                  <InstructionItem :number="4">
+                    {{ localizedText.codeInstruction4 }}
+                  </InstructionItem>
                 </div>
 
                 <a href="#" class="wa-qr-link-alt" @click.prevent="toggleLoginMode">
@@ -237,22 +172,8 @@
         <!-- Right side - QR Code or Feature -->
         <div v-if="loginMode === 'qr'" class="wa-right-side">
           <!-- QR Code display -->
-          <div class="wa-qr-wrapper">
-            <div v-if="loadingQR" class="wa-qr-loading">
-              <div class="wa-spinner"></div>
-            </div>
-            <div v-else-if="qrCode" class="wa-qr-display">
-              <div class="wa-qr-box">
-                <img :src="qrCode" alt="QR Code" class="wa-qr-image" />
-              </div>
-            </div>
-            <div v-else-if="qrError" class="wa-qr-error">
-              <p>{{ qrError }}</p>
-              <button class="wa-button wa-button-primary" @click="generateQRCode">
-                {{ localizedText.regenerateButton }}
-              </button>
-            </div>
-          </div>
+          <QRCodeDisplay :loading="loadingQR" :qr-code="qrCode" :error="qrError"
+            :regenerate-text="localizedText.regenerateButton" @regenerate="generateQRCode" />
           <!-- Toggle link -->
           <a href="#" class="wa-toggle-link hide-936-over" @click.prevent="toggleLoginMode">
             {{ localizedText.qrToggleLink }}
@@ -323,12 +244,21 @@
 </template>
 
 <script setup lang="ts">
-import { ref, computed, onMounted, onUnmounted, watch, nextTick } from 'vue'
+import { ref, computed, onMounted, onUnmounted } from 'vue'
 import { ElMessage } from 'element-plus'
 import { whatsappApi } from '@/api/whatsapp'
 import { countries, type Country } from '@/data/countries'
 import { detectUserRegion, detectUserLocale, getLocalizedText } from '@/utils/localization'
-import QRCode from 'qrcode'
+import type QRCodeType from 'qrcode'
+
+// Import reusable components
+import InstructionItem from '@/components/whatsapp-login/InstructionItem.vue'
+import CountrySelector from '@/components/whatsapp-login/CountrySelector.vue'
+import PairingCodeDisplay from '@/components/whatsapp-login/PairingCodeDisplay.vue'
+import QRCodeDisplay from '@/components/whatsapp-login/QRCodeDisplay.vue'
+
+// Lazy load QRCode library for better initial load performance
+const loadQRCode = () => import('qrcode')
 
 // Import SVG assets
 import whatsappLogo from '@/assets/whatsapp-logo.svg'
@@ -363,11 +293,6 @@ const phoneNumber = ref('')
 const pairingCode = ref('') // 存储API返回的配对码
 const submitting = ref(false)
 
-// Country selector state
-const showCountryDropdown = ref(false)
-const countrySearchQuery = ref('')
-const countrySelectorRef = ref<HTMLElement>()
-const searchInputRef = ref<HTMLInputElement>()
 
 // Localization state
 const userLocale = ref('en-US')
@@ -434,28 +359,8 @@ const selectedCountryData = computed(() => {
   return country || countries[0]
 })
 
-const filteredCountries = computed(() => {
-  if (!countrySearchQuery.value) return countries
-
-  const query = countrySearchQuery.value.toLowerCase()
-  return countries.filter(country => {
-    // Get localized name for the current locale
-    const localizedName = getLocalizedCountryName(country.code, userLocale.value).toLowerCase()
-
-    return (
-      country.name.toLowerCase().includes(query) ||
-      country.nameZh.toLowerCase().includes(query) ||
-      localizedName.includes(query) ||
-      country.dialCode.includes(query) ||
-      country.code.toLowerCase().includes(query)
-    )
-  })
-})
-
-const pairingCodeArray = computed(() => {
-  if (!pairingCode.value) return []
-  // Split the pairing code into individual characters
-  return pairingCode.value.split('')
+const countryDisplayName = computed(() => {
+  return getCountryDisplayName(selectedCountryData.value)
 })
 
 // Methods
@@ -468,6 +373,9 @@ const generateQRCode = async () => {
     const response = await whatsappApi.generateQR()
     sessionId.value = response.session_id
 
+    // Lazy load QRCode library only when needed
+    const QRCode = (await loadQRCode()).default as typeof QRCodeType
+    
     const qrCodeDataURL = await QRCode.toDataURL(response.qr_code, {
       width: 264,
       margin: 0,
@@ -576,8 +484,6 @@ const handleApprovalClose = () => {
 // Country selector functions
 const selectCountry = (country: Country) => {
   selectedCountry.value = country.code
-  showCountryDropdown.value = false
-  countrySearchQuery.value = ''
 }
 
 const getCountryDisplayName = (country: Country): string => {
@@ -588,7 +494,6 @@ const getCountryDisplayName = (country: Country): string => {
   const localizedName = getLocalizedCountryName(country.code, locale)
 
   if (localizedName && localizedName !== country.code) {
-    // Successfully got localized name
     return localizedName
   }
 
@@ -599,47 +504,6 @@ const getCountryDisplayName = (country: Country): string => {
 
   // Default: show English name
   return country.name
-}
-
-const shouldShowSecondaryName = (country: Country): boolean => {
-  const locale = userLocale.value
-  const language = locale.split('-')[0].toLowerCase()
-  const primaryName = getCountryDisplayName(country)
-
-  // Show English name as secondary if primary is not English
-  if (primaryName !== country.name && language !== 'en') {
-    return true
-  }
-
-  // For English users, show Chinese name if available and different
-  if (language === 'en' && country.nameZh !== country.name) {
-    return true
-  }
-
-  return false
-}
-
-const getSecondaryCountryName = (country: Country): string => {
-  const language = userLocale.value.split('-')[0].toLowerCase()
-  const primaryName = getCountryDisplayName(country)
-
-  // If primary is not English, show English as secondary
-  if (primaryName !== country.name) {
-    return country.name
-  }
-
-  // For English users, show Chinese name
-  if (language === 'en') {
-    return country.nameZh
-  }
-
-  return country.name
-}
-
-const handleClickOutside = (event: MouseEvent) => {
-  if (countrySelectorRef.value && !countrySelectorRef.value.contains(event.target as Node)) {
-    showCountryDropdown.value = false
-  }
 }
 
 // Auto-detect user region
@@ -665,28 +529,16 @@ const initializeUserRegion = async () => {
   }
 }
 
-// Watch for dropdown opening to focus search input
-watch(showCountryDropdown, async (isOpen) => {
-  if (isOpen) {
-    await nextTick()
-    searchInputRef.value?.focus()
-  }
-})
-
 onMounted(async () => {
   // Initialize region detection first
   await initializeUserRegion()
 
   // Then generate QR code
   generateQRCode()
-
-  // Add click outside listener
-  document.addEventListener('click', handleClickOutside)
 })
 
 onUnmounted(() => {
   stopStatusChecking()
-  document.removeEventListener('click', handleClickOutside)
 })
 </script>
 
@@ -1387,6 +1239,12 @@ onUnmounted(() => {
   }
 }
 
+.wa-instruction-part {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
 .wa-emoji {
   display: flex;
   align-items: center;
@@ -1882,15 +1740,49 @@ onUnmounted(() => {
     font-size: 24px;
   }
 
+  .wa-instruction-part {
+    /* Allow instruction parts to wrap on medium screens */
+    flex: 0 1 auto;
+    min-width: fit-content;
+  }
+
+  .wa-instruction-text {
+    gap: 8px;
+  }
+
+  .wa-code-instructions .wa-instruction-item:nth-child(1)::before {
+    height: 100% !important;
+  }
+
   .wa-download-banner {
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 12px;
+    padding: 16px 24px;
+    gap: 16px;
+  }
+
+  .wa-download-icon img {
+    width: 48px;
+    height: 48px;
+  }
+
+  .wa-download-title {
+    font-size: 1rem;
+    margin-bottom: 2px;
+  }
+
+  .wa-download-desc {
+    font-size: 0.8rem;
   }
 
   .wa-download-button {
-    width: 100%;
-    justify-content: center;
+    padding: 10px 16px;
+    font-size: 0.85rem;
+    white-space: nowrap;
+  }
+
+  .wa-download-button img {
+    width: 14px;
+    height: 14px;
+    margin-left: 4px !important;
   }
 
   /* Mobile styles for code form */
@@ -1966,12 +1858,58 @@ onUnmounted(() => {
 
   .wa-instruction-text {
     flex-wrap: wrap !important;
+    gap: 6px;
+  }
+
+  .wa-instruction-part {
+    /* Ensure parts can wrap on small screens */
+    flex: 0 1 auto;
+    min-width: fit-content;
   }
 
   .wa-code-instructions .wa-instruction-item:nth-child(1)::before {
     height: 100% !important;
   }
 
+  .wa-download-banner {
+    padding: 12px 16px;
+    gap: 12px;
+  }
+
+  .wa-download-icon img {
+    width: 40px;
+    height: 40px;
+  }
+
+  .wa-download-title {
+    font-size: 0.9rem;
+    margin-bottom: 2px;
+  }
+
+  .wa-download-desc {
+    font-size: 0.7rem;
+    line-height: 1.3;
+  }
+
+  .wa-download-button {
+    padding: 8px 12px;
+    font-size: 0.75rem;
+  }
+
+  .wa-download-button img {
+    width: 12px;
+    height: 12px;
+    margin-left: 3px !important;
+  }
+
+  .wa-download-link {
+    font-size: 0.8rem;
+  }
+
+  .wa-download-link img {
+    width: 12px;
+    height: 12px;
+  }
 
   .wa-code-title {
     font-size: 1.25rem;
